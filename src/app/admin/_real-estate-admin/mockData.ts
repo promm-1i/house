@@ -188,11 +188,11 @@ export const INITIAL_MESSAGES: Message[] = [
 ];
 
 export const INITIAL_STAFF: Staff[] = [
-  { id: 1, name: "설재성", role: "관리자", position: "대표", email: "admin@mintcl-demo.co.kr", phone: "010-0000-0001", status: "재직", propertyCount: 4, lastLoginAt: "2026-08-29 08:50" },
-  { id: 2, name: "김민수", role: "직원", position: "팀장", email: "kim@mintcl-demo.co.kr", phone: "010-0000-0002", status: "재직", propertyCount: 6, lastLoginAt: "2026-08-29 09:00" },
-  { id: 3, name: "박정민", role: "직원", position: "대리", email: "park@mintcl-demo.co.kr", phone: "010-0000-0003", status: "재직", propertyCount: 5, lastLoginAt: "2026-08-28 18:20" },
-  { id: 4, name: "이지은", role: "직원", position: "대리", email: "lee@mintcl-demo.co.kr", phone: "010-0000-0004", status: "재직", propertyCount: 3, lastLoginAt: "2026-08-29 08:40" },
-  { id: 5, name: "정하나", role: "직원", position: "사원", email: "jung@mintcl-demo.co.kr", phone: "010-0000-0005", status: "비활성", propertyCount: 0, lastLoginAt: "2026-07-15 10:00" },
+  { id: 1, name: "설재성", role: "관리자", position: "대표", email: "admin@estatesample-demo.co.kr", phone: "010-0000-0001", status: "재직", propertyCount: 4, lastLoginAt: "2026-08-29 08:50" },
+  { id: 2, name: "김민수", role: "직원", position: "팀장", email: "kim@estatesample-demo.co.kr", phone: "010-0000-0002", status: "재직", propertyCount: 6, lastLoginAt: "2026-08-29 09:00" },
+  { id: 3, name: "박정민", role: "직원", position: "대리", email: "park@estatesample-demo.co.kr", phone: "010-0000-0003", status: "재직", propertyCount: 5, lastLoginAt: "2026-08-28 18:20" },
+  { id: 4, name: "이지은", role: "직원", position: "대리", email: "lee@estatesample-demo.co.kr", phone: "010-0000-0004", status: "재직", propertyCount: 3, lastLoginAt: "2026-08-29 08:40" },
+  { id: 5, name: "정하나", role: "직원", position: "사원", email: "jung@estatesample-demo.co.kr", phone: "010-0000-0005", status: "비활성", propertyCount: 0, lastLoginAt: "2026-07-15 10:00" },
 ];
 
 export const INITIAL_DEAL_CASES: DealCase[] = [

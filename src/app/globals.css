@@ -4,7 +4,7 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  /* admin dashboard tokens (mintcl real-estate-admin demo) */
+  /* admin dashboard tokens (EstateSample real-estate-admin demo) */
   --radius: 0.75rem;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.24 0 0);
@@ -31,7 +31,7 @@
   --font-sans: var(--font-body), "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
   --font-display: var(--font-display), "Malgun Gothic", serif;
 
-  /* admin dashboard tokens (mintcl real-estate-admin demo) */
+  /* admin dashboard tokens (EstateSample real-estate-admin demo) */
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);

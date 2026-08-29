@@ -3,7 +3,7 @@ import { toast } from "sonner";
 import { useLocalStorageState } from "@/lib/useLocalStorageState";
 import * as M from "./mockData";
 
-const NS = "mintcl-demo-real-estate";
+const NS = "estatesample-demo-real-estate";
 import type {
   Listing,
   DeletedListing,

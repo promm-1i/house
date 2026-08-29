@@ -1,6 +1,23 @@
 import { type ReactNode } from "react";
-import { X, type LucideIcon } from "lucide-react";
+import { X, Building2, Building, Home, Store, TreePine, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+const PROPERTY_TYPE_ICON: Record<string, LucideIcon> = {
+  아파트: Building2,
+  오피스텔: Building,
+  원룸: Home,
+  투룸: Home,
+  주택: Home,
+  빌라: Building,
+  사무실: Building2,
+  상가: Store,
+  토지: TreePine,
+};
+
+export function PropertyThumb({ type, className }: { type: string; className?: string }) {
+  const Icon = PROPERTY_TYPE_ICON[type] ?? Building2;
+  return <Icon className={className ?? "h-4 w-4 text-muted-foreground"} aria-hidden />;
+}
 
 export function StatusBadge({
   label,

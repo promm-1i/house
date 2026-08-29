@@ -1,4 +1,4 @@
-import { useEffect, useState, type FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { toast } from "sonner";
 import { Search, MapPin, Plus, Trash2, Pencil, RotateCcw, GripVertical, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,7 @@ import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { useRealEstateAdmin } from "../store";
 import { PROPERTY_TYPES, EMPTY_LISTING_FORM } from "../mockData";
-import { PanelHeader, StatusBadge, Modal, Row, EmptyResult } from "../components";
+import { PanelHeader, StatusBadge, Modal, Row, EmptyResult, PropertyThumb } from "../components";
 import type { Listing } from "../types";
 
 export function PropertyListView({ onNavigate }: { onNavigate: (key: string) => void }) {
@@ -112,7 +112,7 @@ export function PropertyListView({ onNavigate }: { onNavigate: (key: string) => 
                   />
                 </td>
                 <td className="py-2.5 pr-3 font-medium text-foreground">
-                  <span className="mr-1.5">{l.image}</span>
+                  <PropertyThumb type={l.type} className="mr-1.5 inline h-3.5 w-3.5 text-muted-foreground" />
                   {l.title}
                 </td>
                 <td className="py-2.5 pr-3 text-muted-foreground">{l.type}</td>
@@ -168,7 +168,7 @@ export function PropertyListView({ onNavigate }: { onNavigate: (key: string) => 
         </Button>
       </div>
 
-      <ListingEditModal listing={editTarget} onClose={() => setEditTarget(null)} />
+      <ListingEditModal key={editTarget?.id ?? "none"} listing={editTarget} onClose={() => setEditTarget(null)} />
 
       <Modal
         open={!!deleteTarget}
@@ -194,7 +194,7 @@ export function PropertyListView({ onNavigate }: { onNavigate: (key: string) => 
       >
         <p className="text-sm text-foreground break-keep">
           <span className="font-medium">{deleteTarget?.title}</span> 매물을 삭제합니다. 삭제된 매물은
-          "삭제된 매물" 메뉴에서 복구할 수 있습니다.
+          &quot;삭제된 매물&quot; 메뉴에서 복구할 수 있습니다.
         </p>
         <label className="mt-4 block text-xs font-medium text-muted-foreground">삭제 사유 (선택)</label>
         <Input
@@ -211,10 +211,6 @@ export function PropertyListView({ onNavigate }: { onNavigate: (key: string) => 
 function ListingEditModal({ listing, onClose }: { listing: Listing | null; onClose: () => void }) {
   const { setListings, logActivity } = useRealEstateAdmin();
   const [form, setForm] = useState<Listing | null>(listing);
-
-  useEffect(() => {
-    setForm(listing);
-  }, [listing]);
 
   const handleSave = (e: FormEvent) => {
     e.preventDefault();
@@ -544,7 +540,7 @@ export function PropertyGalleryView() {
             onClick={() => setSelectedImage(l)}
             className="flex aspect-square flex-col items-center justify-center gap-1 rounded-xl border border-border bg-secondary/30 p-3 transition-colors hover:border-primary/40"
           >
-            <span className="text-3xl">{l.image}</span>
+            <PropertyThumb type={l.type} className="h-8 w-8 text-muted-foreground" />
             <span className="line-clamp-1 text-[10px] text-muted-foreground">{l.title}</span>
           </button>
         ))}
@@ -553,7 +549,7 @@ export function PropertyGalleryView() {
       <Modal open={!!selectedImage} onClose={() => setSelectedImage(null)} title={selectedImage?.title ?? ""}>
         {selectedImage && (
           <div className="text-center">
-            <span className="text-7xl">{selectedImage.image}</span>
+            <PropertyThumb type={selectedImage.type} className="mx-auto h-16 w-16 text-muted-foreground" />
             <p className="mt-3 text-sm text-muted-foreground">
               {selectedImage.region} · {selectedImage.manager} 담당
             </p>

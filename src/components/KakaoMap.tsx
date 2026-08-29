@@ -2,6 +2,7 @@
 
 import Script from "next/script";
 import { useEffect, useRef, useState } from "react";
+import { MapPin } from "lucide-react";
 import { KAKAO_MAP_APP_KEY, hasKakaoMapKey } from "@/lib/config";
 
 // 카카오맵 SDK는 공식 타입 정의가 없어 실제 사용하는 부분만 최소한으로 타입을 붙인다.
@@ -104,9 +105,15 @@ export default function KakaoMap({
   if (!hasKakaoMapKey) {
     return (
       <div
-        className={`flex items-center justify-center rounded-lg border border-dashed border-zinc-300 bg-zinc-50 text-sm text-zinc-400 ${heightClassName}`}
+        className={`flex flex-col items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-6 text-center ${heightClassName}`}
       >
-        지도 영역 — NEXT_PUBLIC_KAKAO_MAP_APP_KEY를 넣으면 바로 연동됩니다
+        <MapPin className="h-6 w-6 text-zinc-300" aria-hidden />
+        <p className="text-sm font-medium text-zinc-500">
+          {markers.length > 0 ? `매물 위치 ${markers.length}건` : "지도 준비 중"}
+        </p>
+        <p className="text-xs text-zinc-400">
+          실제 서비스에서는 이 영역에 카카오맵이 실시간으로 연동됩니다.
+        </p>
       </div>
     );
   }

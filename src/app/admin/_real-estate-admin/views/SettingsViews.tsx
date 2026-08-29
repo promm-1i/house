@@ -97,9 +97,9 @@ export function SiteScreenSettingsView() {
 
 export function SiteAdvancedSettingsView() {
   const [form, setForm] = useState({
-    seoTitle: "부동산에 기술을 더하는 사람들 — 부기사 데모",
+    seoTitle: "EstateSample — 문정동 부동산 전문 플랫폼",
     metaDescription: "매물 검색, 상담, 계약까지 한 곳에서 처리하는 부동산 플랫폼입니다.",
-    domain: "demo1.mintcl-realestate.co.kr",
+    domain: "demo1.estatesample.co.kr",
     ga: "",
     naverAuth: "",
     indexable: true,

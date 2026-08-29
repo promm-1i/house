@@ -3,7 +3,7 @@ import { Sparkles, Send, Bot, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRealEstateAdmin } from "../store";
-import { PanelHeader, DemoNote, EmptyResult } from "../components";
+import { PanelHeader, DemoNote, EmptyResult, PropertyThumb } from "../components";
 import type { Listing } from "../types";
 
 function parseQuery(query: string, listings: Listing[]): Listing[] {
@@ -28,7 +28,9 @@ function parseQuery(query: string, listings: Listing[]): Listing[] {
 function ListingCard({ listing }: { listing: Listing }) {
   return (
     <div className="flex items-start gap-3 rounded-xl border border-border bg-card p-3">
-      <span className="text-2xl">{listing.image}</span>
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-secondary">
+        <PropertyThumb type={listing.type} className="h-4.5 w-4.5 text-muted-foreground" />
+      </div>
       <div className="min-w-0">
         <p className="truncate text-sm font-medium text-foreground">{listing.title}</p>
         <p className="mt-0.5 text-xs text-muted-foreground">
@@ -93,7 +95,7 @@ export function AiSearchView() {
       {submitted && (
         <div className="mt-6">
           <p className="text-xs text-muted-foreground">
-            "{submitted}" 조건에 맞는 매물 {results.length}건을 찾았습니다.
+            &quot;{submitted}&quot; 조건에 맞는 매물 {results.length}건을 찾았습니다.
           </p>
           <div className="mt-3 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {results.slice(0, 6).map((l) => (

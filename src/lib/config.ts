@@ -14,11 +14,11 @@ export const CONTACT_WEBHOOK_URL = process.env.CONTACT_WEBHOOK_URL ?? "";
 export const hasContactWebhook = CONTACT_WEBHOOK_URL.length > 0;
 
 // 실제 회사가 아닌 샘플임을 분명히 하기 위한 가상의 상호/정보.
-export const SITE_NAME = "샘플부동산";
-export const SITE_TITLE_SUFFIX = "샘플부동산 (SAMPLE DEMO)";
+export const SITE_NAME = "EstateSample";
+export const SITE_TITLE_SUFFIX = "EstateSample (SAMPLE DEMO)";
 
 export const COMPANY_OFFICE = {
-  name: "(주)샘플부동산중개법인",
+  name: "EstateSample 부동산중개법인",
   representative: "홍길동",
   address: "서울특별시 송파구 문정로 100, 5층 (샘플빌딩)",
   phone: "02-1234-5678",

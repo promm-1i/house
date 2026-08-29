@@ -410,7 +410,7 @@ export function DataSearchView() {
 
       {query && (
         <div className="mt-5">
-          <p className="text-xs text-muted-foreground">"{query}" 검색 결과 {totalCount}건</p>
+          <p className="text-xs text-muted-foreground">&quot;{query}&quot; 검색 결과 {totalCount}건</p>
           <div className="mt-3 space-y-5">
             <ResultGroup label="매물" count={matchedListings.length}>
               {matchedListings.slice(0, 5).map((l) => (

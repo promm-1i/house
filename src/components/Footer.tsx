@@ -33,8 +33,8 @@ export default function Footer() {
           </div>
         </dl>
         <p className="mt-6 text-xs text-zinc-400">
-          © {SITE_NAME} SAMPLE. 이 사이트의 상호, 매물, 연락처는 전부 가상의
-          샘플 데이터이며 실제 업체와 무관합니다.
+          © {SITE_NAME}. SAMPLE DEMO — 이 사이트의 상호, 매물, 연락처는 전부
+          가상의 샘플 데이터이며 실제 업체와 무관합니다.
         </p>
       </div>
     </footer>
