@@ -58,7 +58,7 @@ export const MENU: MenuItem[] = [
   },
   { key: "field-visit", label: "임장 관리", icon: Compass },
   { key: "customer-inquiry", label: "고객·문의 관리", icon: Users },
-  { key: "home-request", label: "내 집 요청 관리", icon: Home },
+  { key: "home-request", label: "매물 요청 관리", icon: Home },
   { key: "schedule", label: "일정 관리", icon: CalendarDays },
   { key: "data-search", label: "데이터 검색", icon: Search },
   { key: "realestate-info", label: "부동산 정보", icon: FileText },

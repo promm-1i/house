@@ -147,7 +147,7 @@ export function HomeRequestView() {
   const { homeRequests } = useRealEstateAdmin();
   return (
     <div>
-      <PanelHeader title="내 집 요청 관리" description="고객이 원하는 조건을 등록하고 매칭 가능한 매물을 확인합니다." />
+      <PanelHeader title="매물 요청 관리" description="고객이 원하는 조건을 등록하고 매칭 가능한 매물을 확인합니다." />
       <div className="grid gap-4 sm:grid-cols-3">
         <StatCard label="전체 요청" value={homeRequests.length} icon={Inbox} />
         <StatCard label="매칭 5건 이상" value={homeRequests.filter((r) => r.matchCount >= 5).length} icon={Check} />

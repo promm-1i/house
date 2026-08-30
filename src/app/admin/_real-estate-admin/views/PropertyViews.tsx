@@ -111,13 +111,15 @@ export function PropertyListView({ onNavigate }: { onNavigate: (key: string) => 
                     className="h-3.5 w-3.5"
                   />
                 </td>
-                <td className="py-2.5 pr-3 font-medium text-foreground">
-                  <PropertyThumb type={l.type} className="mr-1.5 inline h-3.5 w-3.5 text-muted-foreground" />
-                  {l.title}
+                <td className="max-w-[240px] py-2.5 pr-3 font-medium text-foreground">
+                  <span className="flex items-center gap-1.5" title={l.title}>
+                    <PropertyThumb type={l.type} className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                    <span className="truncate">{l.title}</span>
+                  </span>
                 </td>
                 <td className="py-2.5 pr-3 text-muted-foreground">{l.type}</td>
-                <td className="py-2.5 pr-3 text-muted-foreground">{l.region}</td>
-                <td className="py-2.5 pr-3 text-muted-foreground">{l.price}</td>
+                <td className="max-w-[140px] truncate py-2.5 pr-3 text-muted-foreground" title={l.region}>{l.region}</td>
+                <td className="max-w-[160px] truncate py-2.5 pr-3 text-muted-foreground" title={l.price}>{l.price}</td>
                 <td className="py-2.5 pr-3 text-muted-foreground">{l.manager}</td>
                 <td className="py-2.5 pr-3">
                   <StatusBadge
@@ -278,7 +280,7 @@ export function PropertyRegisterView({ onNavigate }: { onNavigate: (key: string)
             className="mt-1.5"
             value={form.title}
             onChange={(e) => setForm((f) => ({ ...f, title: e.target.value }))}
-            placeholder="예: 역세권 신축 아파트"
+            placeholder="예: 문정역 초역세권 신축 사무실"
           />
         </div>
         <div>
@@ -287,7 +289,7 @@ export function PropertyRegisterView({ onNavigate }: { onNavigate: (key: string)
             className="mt-1.5"
             value={form.region}
             onChange={(e) => setForm((f) => ({ ...f, region: e.target.value }))}
-            placeholder="예: 서울 강남구 대치동"
+            placeholder="예: 서울 송파구 문정동"
           />
         </div>
         <div>
@@ -566,7 +568,7 @@ export function PropertyComplexView() {
 
   return (
     <div>
-      <PanelHeader title="단지 정보 관리" description="아파트/오피스텔 등 단지 마스터 정보입니다." />
+      <PanelHeader title="단지 정보 관리" description="오피스텔/지식산업센터 등 단지 마스터 정보입니다." />
       <div className="space-y-2">
         {complexes.map((c) => (
           <Row key={c.id} onClick={() => setSelected(c)}>

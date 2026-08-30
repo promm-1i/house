@@ -6,14 +6,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { Button } from "@/components/ui/button";
 import { PanelHeader, DemoNote } from "../components";
+import { SITE_NAME, COMPANY_OFFICE } from "@/lib/config";
 
 export function SiteScreenSettingsView() {
   const [form, setForm] = useState({
-    siteName: "부동산에 기술을 더하는 사람들",
-    mainTitle: "믿을 수 있는 부동산 파트너",
-    subTitle: "매물 검색부터 상담까지 한 번에",
-    phone: "070-8098-8054",
-    address: "서울특별시 구로구 디지털로26길 111",
+    siteName: SITE_NAME,
+    mainTitle: "문정동 사무실·상가, 믿을 수 있는 전문가와 함께",
+    subTitle: "지도 기반 매물 검색부터 상담까지 한 화면에서",
+    phone: COMPANY_OFFICE.phone,
+    address: COMPANY_OFFICE.address,
     hours: "평일 09:00 - 18:00",
     showInquiryButton: true,
     showSns: true,

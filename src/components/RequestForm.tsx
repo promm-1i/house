@@ -64,10 +64,10 @@ export default function RequestForm({
             key={t}
             type="button"
             onClick={() => setType(t)}
-            className={`rounded px-4 py-1.5 text-sm font-medium ${
+            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 ${
               type === t
                 ? "bg-blue-900 text-white"
-                : "border border-zinc-300 text-zinc-600"
+                : "border border-zinc-300 text-zinc-600 hover:border-blue-900 hover:text-blue-900"
             }`}
           >
             {t === "sell" ? "팔아요" : "구해요"}
@@ -79,7 +79,7 @@ export default function RequestForm({
         <select
           name="dealType"
           required
-          className="rounded border border-zinc-300 px-3 py-2 text-sm"
+          className="rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
         >
           <option value="">거래 유형</option>
           {DEAL_TYPES.map((v) => (
@@ -91,7 +91,7 @@ export default function RequestForm({
         <select
           name="propertyType"
           required
-          className="rounded border border-zinc-300 px-3 py-2 text-sm"
+          className="rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
         >
           <option value="">매물 종류</option>
           {PROPERTY_TYPES.map((v) => (
@@ -106,25 +106,25 @@ export default function RequestForm({
         required
         name="region"
         placeholder="위치 (예: 서울 송파구 문정동)"
-        className="rounded border border-zinc-300 px-3 py-2 text-sm"
+        className="rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
       />
       <input
         name="budget"
         placeholder="희망금액"
-        className="rounded border border-zinc-300 px-3 py-2 text-sm"
+        className="rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
       />
       <input
         required
         name="title"
         placeholder="제목"
-        className="rounded border border-zinc-300 px-3 py-2 text-sm"
+        className="rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
       />
       <textarea
         required
         name="content"
         rows={4}
         placeholder="상세내용"
-        className="rounded border border-zinc-300 px-3 py-2 text-sm"
+        className="rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
       />
 
       <div className="grid grid-cols-2 gap-3">
@@ -132,13 +132,13 @@ export default function RequestForm({
           required
           name="name"
           placeholder="이름"
-          className="rounded border border-zinc-300 px-3 py-2 text-sm"
+          className="rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
         />
         <input
           required
           name="contact"
           placeholder="연락처"
-          className="rounded border border-zinc-300 px-3 py-2 text-sm"
+          className="rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
         />
       </div>
 
@@ -156,7 +156,7 @@ export default function RequestForm({
         <input
           value={captchaAnswer}
           onChange={(e) => setCaptchaAnswer(e.target.value)}
-          className="w-16 rounded border border-zinc-300 px-2 py-1 text-sm"
+          className="w-16 rounded-md border border-zinc-300 px-2 py-1 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
         />
       </label>
 
@@ -166,14 +166,14 @@ export default function RequestForm({
         <button
           type="button"
           onClick={() => router.push("/request")}
-          className="rounded border border-zinc-300 px-4 py-2 text-sm"
+          className="rounded-md border border-zinc-300 px-4 py-2 text-sm transition-colors hover:border-zinc-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
         >
           취소
         </button>
         <button
           type="submit"
           disabled={sending}
-          className="rounded bg-blue-900 px-4 py-2 text-sm font-medium text-white disabled:opacity-40"
+          className="rounded-md bg-blue-900 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-blue-800 disabled:opacity-40 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900"
         >
           {sending ? "등록 중..." : "의뢰하기"}
         </button>

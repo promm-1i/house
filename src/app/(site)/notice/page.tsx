@@ -1,11 +1,11 @@
-import { SITE_TITLE_SUFFIX } from "@/lib/config";
+import { SITE_NAME, SITE_TITLE_SUFFIX } from "@/lib/config";
 
 export const metadata = { title: `공지사항 | ${SITE_TITLE_SUFFIX}` };
 
 const POSTS: { id: number; title: string; createdAt: string }[] = [
   {
     id: 1,
-    title: "샘플부동산 홈페이지 리뉴얼 안내",
+    title: `${SITE_NAME} 홈페이지 리뉴얼 안내`,
     createdAt: "2026-08-01",
   },
 ];

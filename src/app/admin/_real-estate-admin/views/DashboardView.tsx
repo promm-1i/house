@@ -73,7 +73,7 @@ export function DashboardView({ onNavigate }: { onNavigate: (key: string) => voi
           <div className="mt-3 space-y-2">
             {Object.entries(typeCounts).map(([type, count]) => (
               <div key={type} className="flex items-center gap-3 text-xs">
-                <span className="w-16 shrink-0 text-muted-foreground">{type}</span>
+                <span className="w-24 shrink-0 truncate text-muted-foreground">{type}</span>
                 <div className="h-2 flex-1 overflow-hidden rounded-full bg-secondary">
                   <div
                     className="h-full rounded-full bg-primary"
@@ -91,7 +91,7 @@ export function DashboardView({ onNavigate }: { onNavigate: (key: string) => voi
           <div className="mt-3 space-y-2">
             {Object.entries(managerCounts).map(([manager, count]) => (
               <div key={manager} className="flex items-center gap-3 text-xs">
-                <span className="w-16 shrink-0 text-muted-foreground">{manager}</span>
+                <span className="w-24 shrink-0 truncate text-muted-foreground">{manager}</span>
                 <div className="h-2 flex-1 overflow-hidden rounded-full bg-secondary">
                   <div
                     className="h-full rounded-full bg-primary"
@@ -126,7 +126,7 @@ export function DashboardView({ onNavigate }: { onNavigate: (key: string) => voi
                 className="flex w-full items-center justify-between gap-3 rounded-lg border border-border bg-secondary/30 px-3 py-2 text-left text-xs transition-colors hover:border-primary/40"
               >
                 <span className="min-w-0 flex-1 truncate font-medium text-foreground">{l.title}</span>
-                <span className="shrink-0 text-muted-foreground">{l.region}</span>
+                <span className="max-w-[140px] shrink-0 truncate text-muted-foreground" title={l.region}>{l.region}</span>
                 <StatusBadge label={l.status} tone={l.status === "공개" ? "success" : "neutral"} />
               </button>
             ))}

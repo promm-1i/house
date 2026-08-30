@@ -16,8 +16,8 @@ function parseQuery(query: string, listings: Listing[]): Listing[] {
     const regionWords = q.match(/[가-힣]+동|[가-힣]+구|[가-힣]+역/g) ?? [];
     const matchesRegion = regionWords.length === 0 || regionWords.some((w) => text.includes(w.replace("역", "")));
     const matchesType =
-      !["아파트", "오피스텔", "원룸", "투룸", "빌라", "주택", "상가", "사무실"].some((t) => q.includes(t)) ||
-      ["아파트", "오피스텔", "원룸", "투룸", "빌라", "주택", "상가", "사무실"].some((t) => q.includes(t) && l.type === t);
+      !["사무실", "상가", "오피스텔", "지식산업센터", "근린생활시설", "업무시설", "토지"].some((t) => q.includes(t)) ||
+      ["사무실", "상가", "오피스텔", "지식산업센터", "근린생활시설", "업무시설", "토지"].some((t) => q.includes(t) && l.type === t);
     const monthlyMatch = l.price.match(/월\s*(\d+)/);
     const monthly = monthlyMatch ? Number(monthlyMatch[1]) : null;
     const matchesPrice = maxMonthly === null || monthly === null || monthly <= maxMonthly;
@@ -47,7 +47,7 @@ export function AiSearchView() {
   const [submitted, setSubmitted] = useState("");
   const results = submitted ? parseQuery(submitted, listings) : [];
 
-  const EXAMPLES = ["역삼동 월세 150만원 이하", "강남 아파트 매매", "합정 오피스텔 전세"];
+  const EXAMPLES = ["문정동 월세 150만원 이하", "문정동 사무실 매매", "가락동 오피스텔 전세"];
 
   return (
     <div>
@@ -67,7 +67,7 @@ export function AiSearchView() {
         <Input
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="예: 강남역 도보 10분 이내 월세 150만원 이하 투룸 찾아줘"
+          placeholder="예: 문정역 도보 10분 이내 월세 150만원 이하 사무실 찾아줘"
           className="h-11 flex-1 text-sm"
         />
         <Button type="submit" className="h-11 gap-1.5 font-bold">
@@ -109,14 +109,14 @@ export function AiSearchView() {
   );
 }
 
-const CHATBOT_CHIPS = ["역삼동 월세", "투룸 추천", "주차 가능한 매물", "즉시입주"];
+const CHATBOT_CHIPS = ["문정동 월세", "사무실 추천", "주차 가능한 매물", "즉시입주"];
 
 type ChatMessage = { id: number; from: "user" | "bot"; text: string; listings?: Listing[] };
 
 export function ChatbotView() {
   const { listings } = useRealEstateAdmin();
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { id: 0, from: "bot", text: "안녕하세요! 원하시는 매물 조건을 말씀해 주세요. 예: '역삼동 투룸 있어요?'" },
+    { id: 0, from: "bot", text: "안녕하세요! 원하시는 매물 조건을 말씀해 주세요. 예: '문정동 사무실 있어요?'" },
   ]);
   const [input, setInput] = useState("");
 
