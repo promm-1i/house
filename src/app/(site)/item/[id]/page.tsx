@@ -12,6 +12,7 @@ import ContactForm from "@/components/ContactForm";
 import KakaoMap from "@/components/KakaoMap";
 import ImageGallery from "@/components/ImageGallery";
 import FavoriteButton from "@/components/FavoriteButton";
+import MobileListingCta from "@/components/MobileListingCta";
 import { COMPANY_OFFICE } from "@/lib/config";
 
 function parseId(id: string): number | null {
@@ -69,7 +70,7 @@ export default async function ItemDetailPage(props: PageProps<"/item/[id]">) {
   };
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-6">
+    <div className="mx-auto max-w-6xl px-4 py-6 pb-28 lg:pb-6">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -92,51 +93,59 @@ export default async function ItemDetailPage(props: PageProps<"/item/[id]">) {
 
           <section id="info" className="mb-8 scroll-mt-20">
             <h2 className="mb-3 text-lg font-bold">매물 정보</h2>
-            <dl className="grid grid-cols-2 gap-x-4 gap-y-2 rounded-lg border border-zinc-200 p-4 text-sm sm:grid-cols-4">
-              <Field label="주소" value={listing.address} span />
-              <Field label="거래 유형" value={listing.dealType} />
-              <Field label="매물 종류" value={listing.propertyType} />
-              <Field
-                label={listing.dealType === "매매" ? "매매가" : "보증금"}
-                value={
-                  listing.dealType === "매매"
-                    ? formatManwon(listing.salePrice ?? 0)
-                    : formatManwon(listing.deposit)
-                }
-              />
-              {listing.dealType !== "매매" && (
-                <Field label="월세" value={`${formatManwon(listing.rent ?? 0)}원`} />
-              )}
-              <Field
-                label="관리비"
-                value={
-                  listing.maintenanceFee
-                    ? `${listing.maintenanceFee.toLocaleString("ko-KR")}원`
-                    : "없음(임대료포함)"
-                }
-              />
-              <Field
-                label="면적정보"
-                value={`공급 ${formatArea(listing.areaSupply)} / 전용 ${formatArea(
-                  listing.areaExclusive
-                )}`}
-                span
-              />
-              <Field
-                label="층정보"
-                value={`현재층 :${listing.floorCurrent}층 / 총층 :${listing.floorTotal}층`}
-              />
-              <Field label="방향" value={listing.direction} />
-              <Field label="주용도" value={listing.mainUse} />
-              <Field label="주차" value={`가능 (총 주차대수 ${listing.parkingCount}대)`} />
-              <Field label="엘리베이터" value={`${listing.elevatorCount}대`} />
-              <Field label="입주가능일" value={listing.moveInDate} />
-              <Field label="미등기 여부" value={registry.unregisteredStatus} />
-              <Field label="위반 여부" value={registry.violationStatus} />
-              <Field label="사용승인일" value={registry.useApprovalDate} />
-            </dl>
+            <div className="rounded-lg border border-zinc-200 divide-y divide-zinc-100">
+              <FieldGroup title="기본 정보">
+                <Field label="주소" value={listing.address} span />
+                <Field label="거래 유형" value={listing.dealType} />
+                <Field label="매물 종류" value={listing.propertyType} />
+                <Field
+                  label={listing.dealType === "매매" ? "매매가" : "보증금"}
+                  value={
+                    listing.dealType === "매매"
+                      ? formatManwon(listing.salePrice ?? 0)
+                      : formatManwon(listing.deposit)
+                  }
+                />
+                {listing.dealType !== "매매" && (
+                  <Field label="월세" value={`${formatManwon(listing.rent ?? 0)}원`} />
+                )}
+                <Field
+                  label="관리비"
+                  value={
+                    listing.maintenanceFee
+                      ? `${listing.maintenanceFee.toLocaleString("ko-KR")}원`
+                      : "없음(임대료포함)"
+                  }
+                />
+              </FieldGroup>
+              <FieldGroup title="면적 / 구조">
+                <Field
+                  label="면적정보"
+                  value={`공급 ${formatArea(listing.areaSupply)} / 전용 ${formatArea(
+                    listing.areaExclusive
+                  )}`}
+                  span
+                />
+                <Field
+                  label="층정보"
+                  value={`현재층 :${listing.floorCurrent}층 / 총층 :${listing.floorTotal}층`}
+                />
+                <Field label="방향" value={listing.direction} />
+                <Field label="주용도" value={listing.mainUse} />
+              </FieldGroup>
+              <FieldGroup title="시설 / 입주">
+                <Field label="주차" value={`가능 (총 주차대수 ${listing.parkingCount}대)`} />
+                <Field label="엘리베이터" value={`${listing.elevatorCount}대`} />
+                <Field label="입주가능일" value={listing.moveInDate} />
+              </FieldGroup>
+              <FieldGroup title="법적 정보">
+                <Field label="미등기 여부" value={registry.unregisteredStatus} />
+                <Field label="위반 여부" value={registry.violationStatus} />
+                <Field label="사용승인일" value={registry.useApprovalDate} />
+              </FieldGroup>
+            </div>
             {registry.source === "mock" && (
-              <p className="mt-1 text-xs text-amber-600">
+              <p className="mt-2 text-xs text-amber-600">
                 * 위반/미등기 여부는 현재 목업 데이터입니다. 실연동 시
                 공공데이터포털 건축물대장정보 API로 대체됩니다.
               </p>
@@ -213,8 +222,8 @@ export default async function ItemDetailPage(props: PageProps<"/item/[id]">) {
           </section>
         </div>
 
-        <aside className="lg:col-span-1">
-          <div className="sticky top-24 rounded-lg border border-zinc-200 p-4">
+        <aside id={`contact-${listing.id}`} className="scroll-mt-20 lg:col-span-1">
+          <div className="lg:sticky lg:top-24 rounded-lg border border-zinc-200 p-4">
             <div className="mb-1 flex items-center justify-between gap-1">
               <div className="flex gap-1">
                 {listing.labels.map((label) => (
@@ -242,8 +251,10 @@ export default async function ItemDetailPage(props: PageProps<"/item/[id]">) {
               {listing.areaExclusive.toLocaleString("ko-KR")}㎡
             </p>
 
-            <h3 className="mb-2 text-sm font-bold">매물 문의하기</h3>
-            <ContactForm listingId={listing.id} />
+            <div className="border-t border-zinc-100 pt-4">
+              <h3 className="mb-2 text-sm font-bold">매물 문의하기</h3>
+              <ContactForm listingId={listing.id} />
+            </div>
 
             <div className="mt-4 border-t border-zinc-200 pt-3 text-xs text-zinc-500">
               <p className="font-medium text-zinc-700">{COMPANY_OFFICE.name}</p>
@@ -252,6 +263,19 @@ export default async function ItemDetailPage(props: PageProps<"/item/[id]">) {
           </div>
         </aside>
       </div>
+
+      <MobileListingCta priceLabel={priceLabel} listingId={listing.id} />
+    </div>
+  );
+}
+
+function FieldGroup({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <div className="p-4">
+      <p className="mb-2.5 text-xs font-semibold uppercase tracking-wide text-zinc-400">
+        {title}
+      </p>
+      <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-sm sm:grid-cols-4">{children}</dl>
     </div>
   );
 }

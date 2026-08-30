@@ -27,10 +27,11 @@ export default function RecommendedListings({
           <button
             key={t.value}
             onClick={() => setTab(t.value)}
-            className={`rounded-full px-4 py-1.5 text-sm font-medium ${
+            aria-pressed={tab === t.value}
+            className={`rounded-full px-4 py-1.5 text-sm font-medium transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-900 ${
               tab === t.value
                 ? "bg-blue-900 text-white"
-                : "border border-zinc-300 text-zinc-600"
+                : "border border-zinc-300 text-zinc-600 hover:border-blue-900 hover:text-blue-900"
             }`}
           >
             {t.label}
@@ -38,8 +39,8 @@ export default function RecommendedListings({
         ))}
       </div>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {filtered.map((listing) => (
-          <ListingCard key={listing.id} listing={listing} />
+        {filtered.map((listing, index) => (
+          <ListingCard key={listing.id} listing={listing} priority={index === 0} />
         ))}
         {filtered.length === 0 && (
           <p className="col-span-full py-10 text-center text-sm text-zinc-400">

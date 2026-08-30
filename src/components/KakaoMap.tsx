@@ -105,15 +105,22 @@ export default function KakaoMap({
   if (!hasKakaoMapKey) {
     return (
       <div
-        className={`flex flex-col items-center justify-center gap-2 rounded-lg border border-zinc-200 bg-zinc-50 px-6 text-center ${heightClassName}`}
+        className={`relative flex flex-col items-center justify-center gap-2 overflow-hidden rounded-lg border border-zinc-200 bg-zinc-50 px-6 text-center ${heightClassName}`}
+        style={{
+          backgroundImage:
+            "linear-gradient(to right, rgb(228 228 231 / 0.6) 1px, transparent 1px), linear-gradient(to bottom, rgb(228 228 231 / 0.6) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
       >
-        <MapPin className="h-6 w-6 text-zinc-300" aria-hidden />
-        <p className="text-sm font-medium text-zinc-500">
-          {markers.length > 0 ? `매물 위치 ${markers.length}건` : "지도 준비 중"}
-        </p>
-        <p className="text-xs text-zinc-400">
-          실제 서비스에서는 이 영역에 카카오맵이 실시간으로 연동됩니다.
-        </p>
+        <div className="relative flex flex-col items-center gap-2 rounded-lg bg-white/90 px-5 py-4 shadow-sm backdrop-blur-sm">
+          <MapPin className="h-6 w-6 text-blue-900/40" aria-hidden />
+          <p className="text-sm font-medium text-zinc-600">
+            {markers.length > 0 ? `매물 위치 ${markers.length}건` : "지도 준비 중"}
+          </p>
+          <p className="max-w-[220px] text-xs text-zinc-400">
+            실제 서비스에서는 이 영역에 카카오맵이 실시간으로 연동됩니다.
+          </p>
+        </div>
       </div>
     );
   }

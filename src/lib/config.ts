@@ -19,7 +19,7 @@ export const SITE_TITLE_SUFFIX = "EstateSample (SAMPLE DEMO)";
 
 export const COMPANY_OFFICE = {
   name: "EstateSample 부동산중개법인",
-  representative: "홍길동",
+  representative: "김도윤",
   address: "서울특별시 송파구 문정로 100, 5층 (샘플빌딩)",
   phone: "02-1234-5678",
   fax: "02-1234-5679",

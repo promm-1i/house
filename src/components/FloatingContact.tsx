@@ -1,9 +1,21 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import { MessageCircle, Phone } from "lucide-react";
 import { COMPANY_OFFICE } from "@/lib/config";
 
 export default function FloatingContact() {
+  const pathname = usePathname();
+  // 매물 상세 페이지는 자체 문의 바(MobileListingCta)가 모바일 하단을
+  // 이미 차지하므로, 겹치지 않도록 이 위젯은 모바일에서 숨긴다.
+  const isListingDetail = pathname?.startsWith("/item/");
+
   return (
-    <div className="fixed bottom-20 right-4 z-30 flex flex-col items-end gap-2 md:bottom-6">
+    <div
+      className={`fixed bottom-20 right-4 z-30 flex-col items-end gap-2 md:bottom-6 md:flex ${
+        isListingDetail ? "hidden" : "flex"
+      }`}
+    >
       <span
         title="샘플 데모입니다 — 실제 서비스에서는 카카오톡 채널 상담으로 연동됩니다"
         className="flex h-12 w-12 cursor-not-allowed items-center justify-center rounded-full bg-yellow-400/60 text-yellow-900/60 shadow"

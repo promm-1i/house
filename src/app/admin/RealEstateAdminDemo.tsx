@@ -137,7 +137,7 @@ export function RealEstateAdminDemo() {
   let content: ReactNode;
   switch (activeKey) {
     case "dashboard":
-      content = <DashboardView />;
+      content = <DashboardView onNavigate={selectItem} />;
       break;
     case "property-list":
       content = <PropertyListView onNavigate={selectItem} />;
