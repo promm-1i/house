@@ -1,18 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MapPin, Building2, MessagesSquare, Smartphone } from "lucide-react";
 import QuickSearch from "@/components/QuickSearch";
-import ContactForm from "@/components/ContactForm";
+import ContactSection from "@/components/ContactSection";
 import RecentInquiries from "@/components/RecentInquiries";
 import RecommendedListings from "@/components/RecommendedListings";
 import ScrollReveal from "@/components/ScrollReveal";
 import { listings } from "@/lib/mock-listings";
-import { SITE_NAME } from "@/lib/config";
 
-const STATS = [
-  { label: "등록 매물", value: "220+" },
-  { label: "누적 상담", value: "1,200+" },
-  { label: "평균 응대", value: "10분" },
+const FEATURES = [
+  {
+    icon: MapPin,
+    title: "지도 기반 매물 검색",
+    description: "지역과 조건에 맞는 매물을 지도와 목록에서 동시에 확인합니다.",
+  },
+  {
+    icon: Building2,
+    title: "매물 통합 관리",
+    description: "등록·수정·상태 관리까지 관리자 화면에서 일괄 처리합니다.",
+  },
+  {
+    icon: MessagesSquare,
+    title: "상담·문의 관리",
+    description: "고객 문의와 매물 요청을 한 화면에서 확인하고 응대합니다.",
+  },
+  {
+    icon: Smartphone,
+    title: "반응형 지원",
+    description: "PC·태블릿·모바일 어떤 환경에서도 동일하게 이용할 수 있습니다.",
+  },
 ];
 
 export default function Home() {
@@ -30,61 +46,48 @@ export default function Home() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_80%_0%,rgba(217,119,6,0.12),transparent)]" />
 
         <div className="relative mx-auto max-w-6xl px-4">
-          <p
-            className="animate-fade-in-up text-sm font-medium tracking-wide text-amber-300"
+          <h1
+            className="animate-fade-in-up break-keep font-display text-3xl font-bold leading-tight sm:text-5xl"
             style={{ animationDelay: "0ms" }}
           >
-            {SITE_NAME} · SAMPLE DEMO
-          </p>
-          <h1
-            className="animate-fade-in-up mt-3 font-display text-3xl font-bold leading-tight sm:text-5xl"
-            style={{ animationDelay: "120ms" }}
-          >
-            문정동 사무실·상가,
+            사무실·상가 매물 검색부터
             <br />
-            믿을 수 있는 전문가와 함께
+            상담·관리까지, 하나의 플랫폼에서
           </h1>
           <p
-            className="animate-fade-in-up mt-4 max-w-xl text-sm text-blue-100 sm:text-base"
-            style={{ animationDelay: "260ms" }}
+            className="animate-fade-in-up mt-4 max-w-xl break-keep text-sm text-blue-100 sm:text-base"
+            style={{ animationDelay: "160ms" }}
           >
-            지도 기반 매물 검색부터 상담까지, 한 화면에서 이어지는 부동산
-            중개 경험을 보여주는 샘플 페이지입니다.
+            문정동을 중심으로 한 상업용 부동산 매물을 지도 기반으로 검색하고,
+            고객 문의와 매물 관리까지 한 화면에서 이어갑니다.
           </p>
-
-          <div
-            className="animate-fade-in-up mt-8 flex flex-wrap divide-x divide-white/15"
-            style={{ animationDelay: "380ms" }}
-          >
-            {STATS.map((stat) => (
-              <div key={stat.label} className="pr-8 first:pl-0 [&:not(:first-child)]:pl-8">
-                <p className="font-display text-2xl font-bold text-white sm:text-3xl">
-                  {stat.value}
-                </p>
-                <p className="text-xs text-blue-200">{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
       <section className="mx-auto -mt-32 w-full max-w-6xl px-4 sm:-mt-36">
         <div
           className="animate-fade-in-up rounded-2xl bg-white p-4 shadow-2xl sm:p-6"
-          style={{ animationDelay: "480ms" }}
+          style={{ animationDelay: "280ms" }}
         >
           <QuickSearch />
         </div>
       </section>
 
       <ScrollReveal className="mx-auto w-full max-w-6xl px-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          {FEATURES.map((feature) => (
+            <div key={feature.title} className="flex flex-col gap-2">
+              <feature.icon className="h-6 w-6 text-blue-900" aria-hidden />
+              <h3 className="font-display text-base font-bold text-zinc-900">{feature.title}</h3>
+              <p className="break-keep text-sm text-zinc-500">{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </ScrollReveal>
+
+      <ScrollReveal className="mx-auto w-full max-w-6xl border-t border-zinc-100 px-4 pt-16">
         <div className="mb-4 flex items-end justify-between gap-4">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-blue-900">
-              REAL-TIME LISTINGS
-            </p>
-            <h2 className="mt-1 font-display text-xl font-bold">실시간 추천 매물</h2>
-          </div>
+          <h2 className="font-display text-xl font-bold">추천 매물</h2>
           <Link
             href="/search"
             className="flex shrink-0 items-center gap-1 text-sm font-medium text-zinc-500 transition-colors hover:text-blue-900"
@@ -98,16 +101,14 @@ export default function Home() {
 
       <ScrollReveal className="mx-auto grid w-full max-w-6xl gap-8 border-t border-zinc-100 px-4 pt-16 sm:grid-cols-2">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-blue-900">CONSULTING</p>
-          <h2 className="mt-1 font-display text-xl font-bold">간편 상담 문의</h2>
+          <h2 className="font-display text-xl font-bold">상담 문의</h2>
           <p className="mb-4 mt-1 text-sm text-zinc-500">
-            보다 쉽고 빠르게 문의를 남겨보세요!
+            원하시는 목적을 선택하고 문의를 남겨보세요.
           </p>
-          <ContactForm />
+          <ContactSection />
         </div>
         <div>
-          <p className="text-xs font-semibold uppercase tracking-wide text-blue-900">CASE HISTORY</p>
-          <h2 className="mb-4 mt-1 font-display text-xl font-bold">최근 상담 사례</h2>
+          <h2 className="mb-4 font-display text-xl font-bold">최근 문의</h2>
           <RecentInquiries />
         </div>
       </ScrollReveal>

@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 
-export default function ContactForm({ listingId }: { listingId?: number }) {
+export default function ContactForm({
+  listingId,
+  contentPlaceholder,
+}: {
+  listingId?: number;
+  contentPlaceholder?: string;
+}) {
   const [status, setStatus] = useState<"idle" | "sending" | "done" | "error">(
     "idle"
   );
@@ -49,27 +55,28 @@ export default function ContactForm({ listingId }: { listingId?: number }) {
         type="text"
         name="name"
         placeholder="이름을 입력해주세요"
-        className="rounded border border-zinc-300 px-3 py-2 text-sm"
+        className="rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
       />
       <input
         required
         type="text"
         name="contact"
         placeholder="연락처를 입력해주세요"
-        className="rounded border border-zinc-300 px-3 py-2 text-sm"
+        className="rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
       />
       <textarea
         required
         name="content"
         rows={3}
-        placeholder="상담 내용을 입력해주세요"
-        className="rounded border border-zinc-300 px-3 py-2 text-sm"
+        placeholder={contentPlaceholder ?? "상담 내용을 입력해주세요"}
+        className="rounded-md border border-zinc-300 px-3 py-2 text-sm outline-none focus-visible:border-blue-900 focus-visible:ring-1 focus-visible:ring-blue-900"
       />
       <label className="flex items-center gap-2 text-xs text-zinc-500">
         <input
           type="checkbox"
           checked={agreed}
           onChange={(e) => setAgreed(e.target.checked)}
+          className="h-3.5 w-3.5 accent-blue-900"
         />
         개인정보 수집·이용에 동의합니다
       </label>

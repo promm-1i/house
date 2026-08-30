@@ -17,8 +17,9 @@ export default function RecommendedListings({
   listings: Listing[];
 }) {
   const [tab, setTab] = useState<PropertyType | "전체">("전체");
-  const filtered =
-    tab === "전체" ? listings : listings.filter((l) => l.propertyType === tab);
+  const filtered = (
+    tab === "전체" ? listings : listings.filter((l) => l.propertyType === tab)
+  ).slice(0, 6);
 
   return (
     <div>
@@ -38,7 +39,7 @@ export default function RecommendedListings({
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {filtered.map((listing, index) => (
           <ListingCard key={listing.id} listing={listing} priority={index === 0} />
         ))}

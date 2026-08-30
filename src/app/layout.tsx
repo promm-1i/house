@@ -17,9 +17,9 @@ const bodyFont = Gothic_A1({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title: `${SITE_TITLE_SUFFIX} | 문정동 사무실·상가 임대매매`,
+  title: `${SITE_TITLE_SUFFIX} | 문정동 사무실·상가 매물 검색`,
   description:
-    "실제 서비스가 아닌 샘플 데이터로 만든 부동산 매물 검색 데모 사이트입니다.",
+    "문정동 사무실·상가 매물을 지도 기반으로 검색하고 상담할 수 있는 상업용 부동산 플랫폼",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

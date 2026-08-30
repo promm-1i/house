@@ -17,7 +17,7 @@ export default function FloatingContact() {
       }`}
     >
       <span
-        title="샘플 데모입니다 — 실제 서비스에서는 카카오톡 채널 상담으로 연동됩니다"
+        title="준비 중인 기능입니다 — 카카오톡 채널 상담 연동 예정"
         className="flex h-12 w-12 cursor-not-allowed items-center justify-center rounded-full bg-yellow-400/60 text-yellow-900/60 shadow"
         aria-label="카카오톡 상담 (준비 중)"
       >

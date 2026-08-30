@@ -25,17 +25,17 @@ export default function ListingCard({
       href={`/item/${listing.id}`}
       className="group flex flex-col overflow-hidden rounded-lg border border-zinc-200 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-zinc-300 hover:shadow-lg"
     >
-      <div className="relative h-40 w-full overflow-hidden bg-zinc-100">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-zinc-100">
         <Image
           src={listing.thumbnail}
           alt={`${listing.title} 대표 이미지`}
           fill
           priority={priority}
           className="object-cover transition-transform duration-500 group-hover:scale-110"
-          sizes="(max-width: 768px) 100vw, 25vw"
+          sizes="(max-width: 768px) 100vw, 33vw"
         />
         <div className="absolute left-2 top-2 flex gap-1">
-          {listing.labels.map((label) => (
+          {listing.labels.slice(0, 2).map((label) => (
             <span
               key={label}
               className="rounded bg-blue-900/90 px-1.5 py-0.5 text-[10px] font-medium text-white"

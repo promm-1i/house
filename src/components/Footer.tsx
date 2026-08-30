@@ -7,6 +7,7 @@ export default function Footer() {
         <div className="mb-4 flex flex-wrap gap-4 text-zinc-600">
           <a href="/intro">회사소개</a>
           <a href="/request">의뢰하기</a>
+          <a href="/notice">공지사항</a>
           <a href="/terms">이용약관</a>
           <a href="/privacy">개인정보처리방침</a>
         </div>
@@ -32,9 +33,9 @@ export default function Footer() {
             <dd className="inline">{COMPANY_OFFICE.email}</dd>
           </div>
         </dl>
-        <p className="mt-6 text-xs text-zinc-400">
-          © {SITE_NAME}. SAMPLE DEMO — 이 사이트의 상호, 매물, 연락처는 전부
-          가상의 샘플 데이터이며 실제 업체와 무관합니다.
+        <p className="mt-6 border-t border-zinc-200 pt-4 text-xs text-zinc-400">
+          © {SITE_NAME}. 본 사이트는 상업용 부동산 플랫폼 기능 시연을 위한
+          데모이며, 표시된 업체 및 매물 정보는 실제와 무관합니다.
         </p>
       </div>
     </footer>

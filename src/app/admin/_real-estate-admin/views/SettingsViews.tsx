@@ -11,8 +11,8 @@ import { SITE_NAME, COMPANY_OFFICE } from "@/lib/config";
 export function SiteScreenSettingsView() {
   const [form, setForm] = useState({
     siteName: SITE_NAME,
-    mainTitle: "문정동 사무실·상가, 믿을 수 있는 전문가와 함께",
-    subTitle: "지도 기반 매물 검색부터 상담까지 한 화면에서",
+    mainTitle: "사무실·상가 매물 검색부터 상담·관리까지, 하나의 플랫폼에서",
+    subTitle: "문정동 상업용 부동산을 지도 기반으로 검색하고 상담합니다",
     phone: COMPANY_OFFICE.phone,
     address: COMPANY_OFFICE.address,
     hours: "평일 09:00 - 18:00",
@@ -98,9 +98,9 @@ export function SiteScreenSettingsView() {
 
 export function SiteAdvancedSettingsView() {
   const [form, setForm] = useState({
-    seoTitle: "EstateSample — 문정동 부동산 전문 플랫폼",
+    seoTitle: "OfficeLink — 문정동 상업용 부동산 플랫폼",
     metaDescription: "매물 검색, 상담, 계약까지 한 곳에서 처리하는 부동산 플랫폼입니다.",
-    domain: "demo1.estatesample.co.kr",
+    domain: "officelink.co.kr",
     ga: "",
     naverAuth: "",
     indexable: true,

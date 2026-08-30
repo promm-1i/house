@@ -26,7 +26,7 @@ export const NEARBY_BUS = [
 export const listings: Listing[] = [
   {
     id: 10222,
-    title: "실100p,특A급풀인테리어,지금바로선점하세요",
+    title: "문정역 인근 100평 대형 사무실 · 풀인테리어",
     address: "서울 송파구 문정동",
     district: "서울 송파구 문정동",
     dealType: "월세",
@@ -54,7 +54,7 @@ export const listings: Listing[] = [
   },
   {
     id: 10221,
-    title: "실52p,특A급 풀인테리어 지금 바로선",
+    title: "문정동 52평 사무실 · 즉시 입주 가능",
     address: "서울 송파구 문정동",
     district: "서울 송파구 문정동",
     dealType: "월세",
@@ -81,7 +81,7 @@ export const listings: Listing[] = [
   },
   {
     id: 10220,
-    title: "실90P,특 A급풀인테리어 몸만들어와서 업무가능",
+    title: "문정역 역세권 90평 사무실 · 업무시설 최적화",
     address: "서울 송파구 문정동",
     district: "서울 송파구 문정동",
     dealType: "월세",
@@ -108,7 +108,7 @@ export const listings: Listing[] = [
   },
   {
     id: 10014,
-    title: "샘플부동산 단독진행 전용190평 1개층단독사용, 월세 관리비 포함",
+    title: "문정동 190평 사무실 · 1개층 단독사용",
     address: "서울 송파구 문정동",
     district: "서울 송파구 문정동",
     dealType: "월세",
@@ -128,7 +128,7 @@ export const listings: Listing[] = [
     elevatorCount: 2,
     moveInDate: "즉시입주 협의가능",
     description:
-      "샘플부동산 단독진행 매물(샘플 데이터). 실 190평, 1개층 단독사용, 렌트프리 핏아웃 적극 협의 가능합니다.",
+      "실 190평, 1개층 단독사용 사무실입니다. 렌트프리 핏아웃 협의 가능하며, 월세에 관리비가 포함되어 있습니다.",
     thumbnail: PLACEHOLDER_IMG("10014"),
     images: [PLACEHOLDER_IMG("10014"), PLACEHOLDER_IMG("10014-2")],
     lat: 37.4855,
@@ -136,7 +136,7 @@ export const listings: Listing[] = [
   },
   {
     id: 10006,
-    title: "특 A급 전망 문정역 랜드마크 테라타워1 실입주 매매",
+    title: "테라타워1 고층 사무실 · 문정역 도보권",
     address: "서울 송파구 문정동",
     district: "서울 송파구 문정동",
     dealType: "매매",
@@ -163,7 +163,7 @@ export const listings: Listing[] = [
   },
   {
     id: 10023,
-    title: "전용12P 룸1개 인테리어 소형사무실",
+    title: "문정동 12평 소형 사무실 · 룸 1개",
     address: "서울 송파구 문정동",
     district: "서울 송파구 문정동",
     dealType: "월세",
@@ -190,12 +190,12 @@ export const listings: Listing[] = [
   },
   {
     id: 10212,
-    title: "실200P,체육시설 강력추천 문정역 초초역세권",
+    title: "문정역 초역세권 200평 상가 · 체육시설 적합",
     address: "서울 송파구 문정동",
     district: "서울 송파구 문정동",
     dealType: "월세",
     propertyType: "상가",
-    labels: ["추천", "강력추천"],
+    labels: ["추천"],
     themes: ["초역세권"],
     deposit: 30000,
     rent: 1900,
@@ -209,7 +209,7 @@ export const listings: Listing[] = [
     parkingCount: 40,
     elevatorCount: 2,
     moveInDate: "협의가능",
-    description: "체육시설 업종 강력추천, 문정역 초초역세권 대형 상가.",
+    description: "체육시설 업종에 적합한 문정역 초역세권 대형 상가입니다.",
     thumbnail: PLACEHOLDER_IMG("10212"),
     images: [PLACEHOLDER_IMG("10212")],
     lat: 37.4863,
@@ -217,7 +217,7 @@ export const listings: Listing[] = [
   },
   {
     id: 10020,
-    title: "문정역 랜드마크 엠스테이트 깔끔한 인테리어 사무실",
+    title: "엠스테이트 오피스텔 · 깔끔한 인테리어",
     address: "서울 송파구 문정동",
     district: "서울 송파구 문정동",
     dealType: "월세",
