@@ -27,24 +27,24 @@ export const PROPERTY_TYPES = ["사무실", "상가", "오피스텔", "지식산
 const MANAGERS = ["김민수", "박정민", "이지은", "설재성"];
 
 export const INITIAL_LISTINGS: Listing[] = [
-  { id: 1, title: "문정역 초역세권 신축 사무실", region: "서울 송파구 문정동", type: "사무실", category: "상업", price: "매 9억", manager: "김민수", status: "공개", registeredAt: "2026-08-20", image: "🏢" },
-  { id: 2, title: "가락동 리모델링 오피스텔", region: "서울 송파구 가락동", type: "오피스텔", category: "상업", price: "전 3억", manager: "박정민", status: "공개", registeredAt: "2026-08-21", image: "🏬" },
-  { id: 3, title: "장지동 소형 사무실", region: "서울 송파구 장지동", type: "사무실", category: "상업", price: "보 3천 / 월 50", manager: "이지은", status: "공개", registeredAt: "2026-08-22", image: "🏠" },
-  { id: 4, title: "오금동 1층 근린상가", region: "서울 송파구 오금동", type: "상가", category: "상업", price: "매 12억", manager: "김민수", status: "공개", registeredAt: "2026-08-19", image: "🏡" },
-  { id: 5, title: "문정동 대형 사무실", region: "서울 송파구 문정동", type: "사무실", category: "상업", price: "전 4억 5천", manager: "설재성", status: "공개", registeredAt: "2026-08-18", image: "🏢" },
-  { id: 6, title: "잠실동 근린생활시설", region: "서울 송파구 잠실동", type: "근린생활시설", category: "상업", price: "매 3억 3천 / 융 1억 9천", manager: "박정민", status: "공개", registeredAt: "2026-08-17", image: "🏘️" },
-  { id: 7, title: "문정동 테라타워1 사무실", region: "서울 송파구 문정동", type: "사무실", category: "상업", price: "보 2억 / 월 120", manager: "이지은", status: "공개", registeredAt: "2026-08-16", image: "🏬" },
-  { id: 8, title: "엠스테이트 대로변 사무실", region: "서울 송파구 문정동", type: "사무실", category: "상업", price: "보 1억 / 월 350", manager: "설재성", status: "공개", registeredAt: "2026-08-15", image: "🏢" },
-  { id: 9, title: "가락시장 인근 1층 상가", region: "서울 송파구 가락동", type: "상가", category: "상업", price: "권 5천 / 보 5천 / 월 250", manager: "김민수", status: "비공개", registeredAt: "2026-08-14", image: "🏪" },
-  { id: 10, title: "문정 지식산업센터", region: "서울 송파구 문정동", type: "지식산업센터", category: "상업", price: "매 15억", manager: "박정민", status: "공개", registeredAt: "2026-08-13", image: "🏢" },
-  { id: 11, title: "장지역 인접 업무시설", region: "서울 송파구 장지동", type: "업무시설", category: "상업", price: "매 18억", manager: "이지은", status: "공개", registeredAt: "2026-08-12", image: "🏢" },
-  { id: 12, title: "오금동 창고형 사무실", region: "서울 송파구 오금동", type: "사무실", category: "상업", price: "보 3천 / 월 200", manager: "설재성", status: "비공개", registeredAt: "2026-08-11", image: "🏭" },
-  { id: 13, title: "삼전동 단기임대 사무실", region: "서울 송파구 삼전동", type: "사무실", category: "상업", price: "보 500 / 월 45", manager: "김민수", status: "공개", registeredAt: "2026-08-10", image: "🏠" },
-  { id: 14, title: "문정역 3분거리 상가", region: "서울 송파구 문정동", type: "상가", category: "상업", price: "권 1억 / 보 1억 / 월 500", manager: "박정민", status: "공개", registeredAt: "2026-08-09", image: "🏪" },
-  { id: 15, title: "장지동 물류부지", region: "서울 송파구 장지동", type: "토지", category: "토지/건물", price: "매 8억", manager: "이지은", status: "공개", registeredAt: "2026-08-08", image: "🌳" },
-  { id: 16, title: "방이동 오피스텔", region: "서울 송파구 방이동", type: "오피스텔", category: "상업", price: "전 5억", manager: "설재성", status: "공개", registeredAt: "2026-08-07", image: "🏬" },
-  { id: 17, title: "문정동 신축 지식산업센터", region: "서울 송파구 문정동", type: "지식산업센터", category: "상업", price: "매 7억 5천", manager: "김민수", status: "공개", registeredAt: "2026-08-06", image: "🏢" },
-  { id: 18, title: "가락동 근린상가", region: "서울 송파구 가락동", type: "상가", category: "상업", price: "매 5억", manager: "박정민", status: "비공개", registeredAt: "2026-08-05", image: "🏪" },
+  { id: 1, title: "문정역 초역세권 신축 사무실", region: "서울 송파구 문정동", type: "사무실", category: "상업", price: "매 9억", manager: "김민수", status: "공개", registeredAt: "2026-08-20", image: "/images/building-01.svg" },
+  { id: 2, title: "가락동 리모델링 오피스텔", region: "서울 송파구 가락동", type: "오피스텔", category: "상업", price: "전 3억", manager: "박정민", status: "공개", registeredAt: "2026-08-21", image: "/images/building-02.svg" },
+  { id: 3, title: "장지동 소형 사무실", region: "서울 송파구 장지동", type: "사무실", category: "상업", price: "보 3천 / 월 50", manager: "이지은", status: "공개", registeredAt: "2026-08-22", image: "/images/building-06.svg" },
+  { id: 4, title: "오금동 1층 근린상가", region: "서울 송파구 오금동", type: "상가", category: "상업", price: "매 12억", manager: "김민수", status: "공개", registeredAt: "2026-08-19", image: "/images/building-04.svg" },
+  { id: 5, title: "문정동 대형 사무실", region: "서울 송파구 문정동", type: "사무실", category: "상업", price: "전 4억 5천", manager: "설재성", status: "공개", registeredAt: "2026-08-18", image: "/images/building-05.svg" },
+  { id: 6, title: "잠실동 근린생활시설", region: "서울 송파구 잠실동", type: "근린생활시설", category: "상업", price: "매 3억 3천 / 융 1억 9천", manager: "박정민", status: "공개", registeredAt: "2026-08-17", image: "/images/building-03.svg" },
+  { id: 7, title: "문정동 테라타워1 사무실", region: "서울 송파구 문정동", type: "사무실", category: "상업", price: "보 2억 / 월 120", manager: "이지은", status: "공개", registeredAt: "2026-08-16", image: "/images/building-01.svg" },
+  { id: 8, title: "엠스테이트 대로변 사무실", region: "서울 송파구 문정동", type: "사무실", category: "상업", price: "보 1억 / 월 350", manager: "설재성", status: "공개", registeredAt: "2026-08-15", image: "/images/building-02.svg" },
+  { id: 9, title: "가락시장 인근 1층 상가", region: "서울 송파구 가락동", type: "상가", category: "상업", price: "권 5천 / 보 5천 / 월 250", manager: "김민수", status: "비공개", registeredAt: "2026-08-14", image: "/images/building-04.svg" },
+  { id: 10, title: "문정 지식산업센터", region: "서울 송파구 문정동", type: "지식산업센터", category: "상업", price: "매 15억", manager: "박정민", status: "공개", registeredAt: "2026-08-13", image: "/images/building-05.svg" },
+  { id: 11, title: "장지역 인접 업무시설", region: "서울 송파구 장지동", type: "업무시설", category: "상업", price: "매 18억", manager: "이지은", status: "공개", registeredAt: "2026-08-12", image: "/images/building-03.svg" },
+  { id: 12, title: "오금동 창고형 사무실", region: "서울 송파구 오금동", type: "사무실", category: "상업", price: "보 3천 / 월 200", manager: "설재성", status: "비공개", registeredAt: "2026-08-11", image: "/images/building-06.svg" },
+  { id: 13, title: "삼전동 단기임대 사무실", region: "서울 송파구 삼전동", type: "사무실", category: "상업", price: "보 500 / 월 45", manager: "김민수", status: "공개", registeredAt: "2026-08-10", image: "/images/building-06.svg" },
+  { id: 14, title: "문정역 3분거리 상가", region: "서울 송파구 문정동", type: "상가", category: "상업", price: "권 1억 / 보 1억 / 월 500", manager: "박정민", status: "공개", registeredAt: "2026-08-09", image: "/images/building-04.svg" },
+  { id: 15, title: "장지동 물류부지", region: "서울 송파구 장지동", type: "토지", category: "토지/건물", price: "매 8억", manager: "이지은", status: "공개", registeredAt: "2026-08-08", image: "" },
+  { id: 16, title: "방이동 오피스텔", region: "서울 송파구 방이동", type: "오피스텔", category: "상업", price: "전 5억", manager: "설재성", status: "공개", registeredAt: "2026-08-07", image: "/images/building-02.svg" },
+  { id: 17, title: "문정동 신축 지식산업센터", region: "서울 송파구 문정동", type: "지식산업센터", category: "상업", price: "매 7억 5천", manager: "김민수", status: "공개", registeredAt: "2026-08-06", image: "/images/building-05.svg" },
+  { id: 18, title: "가락동 근린상가", region: "서울 송파구 가락동", type: "상가", category: "상업", price: "매 5억", manager: "박정민", status: "비공개", registeredAt: "2026-08-05", image: "/images/building-04.svg" },
 ];
 
 export const EMPTY_LISTING_FORM = {
@@ -57,8 +57,8 @@ export const EMPTY_LISTING_FORM = {
 };
 
 export const INITIAL_DELETED_LISTINGS: DeletedListing[] = [
-  { id: 101, title: "노후 근린상가 매매", region: "서울 송파구 마천동", type: "상가", category: "상업", price: "매 2억 8천", manager: "김민수", status: "비공개", registeredAt: "2026-07-01", image: "🏘️", deletedAt: "2026-08-15", deletedBy: "박정민", deletedReason: "매물 거래완료" },
-  { id: 102, title: "공실 사무실 (중복등록)", region: "서울 송파구 문정동", type: "사무실", category: "상업", price: "보 3천 / 월 100", manager: "이지은", status: "비공개", registeredAt: "2026-07-10", image: "🏪", deletedAt: "2026-08-12", deletedBy: "설재성", deletedReason: "중복 등록 정리" },
+  { id: 101, title: "노후 근린상가 매매", region: "서울 송파구 마천동", type: "상가", category: "상업", price: "매 2억 8천", manager: "김민수", status: "비공개", registeredAt: "2026-07-01", image: "/images/building-04.svg", deletedAt: "2026-08-15", deletedBy: "박정민", deletedReason: "매물 거래완료" },
+  { id: 102, title: "공실 사무실 (중복등록)", region: "서울 송파구 문정동", type: "사무실", category: "상업", price: "보 3천 / 월 100", manager: "이지은", status: "비공개", registeredAt: "2026-07-10", image: "/images/building-06.svg", deletedAt: "2026-08-12", deletedBy: "설재성", deletedReason: "중복 등록 정리" },
 ];
 
 export const INITIAL_CATEGORIES: PropertyCategory[] = [

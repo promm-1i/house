@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import Image from "next/image";
 import { toast } from "sonner";
 import { Search, MapPin, Plus, Trash2, Pencil, RotateCcw, GripVertical, ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,7 +10,7 @@ import { Switch } from "@/components/ui/switch";
 import { cn } from "@/lib/utils";
 import { useRealEstateAdmin } from "../store";
 import { PROPERTY_TYPES, EMPTY_LISTING_FORM } from "../mockData";
-import { PanelHeader, StatusBadge, Modal, Row, EmptyResult, PropertyThumb } from "../components";
+import { PanelHeader, StatusBadge, Modal, Row, EmptyResult, PropertyThumb, PropertyPhoto, hasPhoto } from "../components";
 import type { Listing } from "../types";
 
 export function PropertyListView({ onNavigate }: { onNavigate: (key: string) => void }) {
@@ -112,8 +113,10 @@ export function PropertyListView({ onNavigate }: { onNavigate: (key: string) => 
                   />
                 </td>
                 <td className="max-w-[240px] py-2.5 pr-3 font-medium text-foreground">
-                  <span className="flex items-center gap-1.5" title={l.title}>
-                    <PropertyThumb type={l.type} className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                  <span className="flex items-center gap-2" title={l.title}>
+                    <span className="relative h-6 w-6 shrink-0 overflow-hidden rounded bg-secondary">
+                      <PropertyPhoto image={l.image} type={l.type} title={l.title} iconClassName="h-3.5 w-3.5 text-muted-foreground" />
+                    </span>
                     <span className="truncate">{l.title}</span>
                   </span>
                 </td>
@@ -261,7 +264,7 @@ export function PropertyRegisterView({ onNavigate }: { onNavigate: (key: string)
       return;
     }
     setListings((prev) => [
-      { id: Date.now(), ...form, status: "공개", registeredAt: new Date().toISOString().slice(0, 10), image: "🏢" },
+      { id: Date.now(), ...form, status: "공개", registeredAt: new Date().toISOString().slice(0, 10), image: "" },
       ...prev,
     ]);
     toast.success("매물이 등록되었습니다.");
@@ -540,10 +543,12 @@ export function PropertyGalleryView() {
             key={l.id}
             type="button"
             onClick={() => setSelectedImage(l)}
-            className="flex aspect-square flex-col items-center justify-center gap-1 rounded-xl border border-border bg-secondary/30 p-3 transition-colors hover:border-primary/40"
+            className="flex aspect-square flex-col overflow-hidden rounded-xl border border-border bg-secondary/30 transition-colors hover:border-primary/40"
           >
-            <PropertyThumb type={l.type} className="h-8 w-8 text-muted-foreground" />
-            <span className="line-clamp-1 text-[10px] text-muted-foreground">{l.title}</span>
+            <span className="relative min-h-0 flex-1 overflow-hidden">
+              <PropertyPhoto image={l.image} type={l.type} title={l.title} iconClassName="h-8 w-8 text-muted-foreground" />
+            </span>
+            <span className="line-clamp-1 px-2 py-1.5 text-[10px] text-muted-foreground">{l.title}</span>
           </button>
         ))}
       </div>
@@ -551,7 +556,13 @@ export function PropertyGalleryView() {
       <Modal open={!!selectedImage} onClose={() => setSelectedImage(null)} title={selectedImage?.title ?? ""}>
         {selectedImage && (
           <div className="text-center">
-            <PropertyThumb type={selectedImage.type} className="mx-auto h-16 w-16 text-muted-foreground" />
+            {hasPhoto(selectedImage.image) ? (
+              <div className="relative mx-auto h-72 w-full overflow-hidden rounded-lg">
+                <Image src={selectedImage.image} alt={selectedImage.title} fill sizes="480px" className="object-cover" />
+              </div>
+            ) : (
+              <PropertyThumb type={selectedImage.type} className="mx-auto h-16 w-16 text-muted-foreground" />
+            )}
             <p className="mt-3 text-sm text-muted-foreground">
               {selectedImage.region} · {selectedImage.manager} 담당
             </p>

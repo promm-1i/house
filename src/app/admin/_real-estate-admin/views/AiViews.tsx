@@ -3,7 +3,7 @@ import { Sparkles, Send, Bot, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useRealEstateAdmin } from "../store";
-import { PanelHeader, DemoNote, EmptyResult, PropertyThumb } from "../components";
+import { PanelHeader, DemoNote, EmptyResult, PropertyPhoto } from "../components";
 import type { Listing } from "../types";
 
 function parseQuery(query: string, listings: Listing[]): Listing[] {
@@ -28,8 +28,8 @@ function parseQuery(query: string, listings: Listing[]): Listing[] {
 function ListingCard({ listing }: { listing: Listing }) {
   return (
     <div className="flex items-start gap-3 rounded-xl border border-border bg-card p-3">
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-secondary">
-        <PropertyThumb type={listing.type} className="h-4.5 w-4.5 text-muted-foreground" />
+      <div className="relative h-9 w-9 shrink-0 overflow-hidden rounded-lg bg-secondary">
+        <PropertyPhoto image={listing.image} type={listing.type} title={listing.title} iconClassName="h-4.5 w-4.5 text-muted-foreground" />
       </div>
       <div className="min-w-0">
         <p className="truncate text-sm font-medium text-foreground">{listing.title}</p>
@@ -54,7 +54,7 @@ export function AiSearchView() {
       <PanelHeader title="AI 매물 탐색" description="자연어로 원하는 조건을 입력하면 실제 매물 데이터에서 검색합니다." />
       <DemoNote>
         <Sparkles className="h-3 w-3" />
-        AI 데모 — 키워드 기반 간이 파서로 동작하며, 실제 매물 DB(이 데모의 Mock Data)만 결과로 보여줍니다
+        AI 데모 — 키워드 기반 간이 파서로 동작하며, 이 데모에 등록된 매물 데이터만 결과로 보여줍니다
       </DemoNote>
 
       <form

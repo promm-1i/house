@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from "react";
+import Image from "next/image";
 import { X, Building2, Building, Store, Factory, Landmark, TreePine, type LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -18,6 +19,37 @@ const PROPERTY_TYPE_ICON: Record<string, LucideIcon> = {
 export function PropertyThumb({ type, className }: { type: string; className?: string }) {
   const Icon = PROPERTY_TYPE_ICON[type] ?? Building2;
   return <Icon className={className ?? "h-4 w-4 text-muted-foreground"} aria-hidden />;
+}
+
+/** 매물 사진(정적 asset 경로)이 등록돼 있는지 — 빈 문자열/이모지 자리값이면 false. */
+export function hasPhoto(image: string | undefined): boolean {
+  return !!image && image.startsWith("/");
+}
+
+/**
+ * 매물 사진 또는 유형 아이콘을 채워서 보여준다. 부모가 크기/모양(정사각형, 라운드 등)을
+ * 잡아주고, 이 컴포넌트는 그 안을 채우기만 한다 — 목록·사진첩·모달에서 동일 매물이면
+ * 항상 같은 사진을 보여주도록 image 값 하나로 통일.
+ */
+export function PropertyPhoto({
+  image,
+  type,
+  title,
+  iconClassName,
+}: {
+  image: string;
+  type: string;
+  title?: string;
+  iconClassName?: string;
+}) {
+  if (hasPhoto(image)) {
+    return <Image src={image} alt={title ?? ""} fill sizes="120px" className="object-cover" />;
+  }
+  return (
+    <div className="flex h-full w-full items-center justify-center">
+      <PropertyThumb type={type} className={iconClassName ?? "h-6 w-6 text-muted-foreground"} />
+    </div>
+  );
 }
 
 export function StatusBadge({
